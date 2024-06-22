@@ -1,16 +1,14 @@
-from math import sqrt
-def get_prime_factors(n):
-    result=[]
-    for i in range(2,n+1):
-        if  isPrime(i):
-            result.append(i)
-    return result
-        
+def get_prime_factors1(n):
+    factors=[]
+    divisor=2
+    while divisor <= n:
+        if n % divisor == 0:
+            factors.append(divisor)
+            n=n//divisor
+        else:
+            divisor+=1
+    return factors
 
-def isPrime(n):
-    for i in range(2,int(sqrt(n))+1):
-        if n%i==0:
-            return False
-    return True
 
-get_prime_factors(100)
+factors=get_prime_factors1(100)
+print(factors)
